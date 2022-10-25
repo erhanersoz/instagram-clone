@@ -3,7 +3,25 @@
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
+    /* Module Resolution Options */
+    "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "baseUrl": "./src", /* Base directory to resolve non-absolute module names. */
+    "paths": {
+      "@components": ["./components"],
+      "@components/*": ["./components/*"],
+      "@navigations": ["./navigations"],
+      "@navigations/*": ["./navigations/*"],
+      "@screens": ["./screens"],
+      "@screens/*": ["./screens/*"],
+      "@containers/*": ["./containers/*"],
+      "@contexts/*": ["./contexts/*"],
+      "@localization": ["./i10n"],
+      "@hooks/*": ["./hooks/*"],
+      "@assets/*": ["./assets/*"],
+      "@theme/*": ["./theme/*"],
+      "@utils/*": ["./utils/*"],
+      "@service/*": ["./service/*"],
+    }, /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   }

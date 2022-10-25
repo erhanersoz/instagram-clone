@@ -1,0 +1,9 @@
+{
+  "sign_in_screen_email_input_placeholder": "E-posta",
+  "sign_in_screen_email_input_required": "E-posta zorunludur",
+  "sign_in_screen_email_input_invalid": "Geçerli bir e-posta adresi girin",
+  "sign_in_screen_password_input_placeholder": "Şifre",
+  "sign_in_screen_password_input_required": "Şifre zorunludur",
+  "sign_in_screen_password_input_minimum_characters": "Şifre en az 6 karakter olmalıdır",
+  "sign_in_screen_submit_button_label": "Giriş yap"
+}
