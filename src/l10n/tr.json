@@ -5,5 +5,8 @@
   "sign_in_screen_password_input_placeholder": "Şifre",
   "sign_in_screen_password_input_required": "Şifre zorunludur",
   "sign_in_screen_password_input_minimum_characters": "Şifre en az 6 karakter olmalıdır",
-  "sign_in_screen_submit_button_label": "Giriş yap"
+  "sign_in_screen_submit_button_label": "Giriş yap",
+  "feed_screen_like_count": "beğenme",
+  "feed_screen_search_bar_placeholder": "Ara",
+  "feed_screen_search_bar_cancel": "İptal"
 }

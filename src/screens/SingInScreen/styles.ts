@@ -1,4 +1,4 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import ThemeProps from '@theme/types';
 
 interface SignInScreenStyles {
@@ -9,7 +9,6 @@ interface SignInScreenStyles {
   signInScreenPasswordRightIcon: ViewStyle;
   signInScreenPasswordRightIconEye: ViewStyle;
   signInScreenPasswordRightIconEyeOff: ViewStyle;
-  text: TextStyle;
 }
 
 const signInScreenStyles = (theme: ThemeProps) =>
@@ -40,9 +39,6 @@ const signInScreenStyles = (theme: ThemeProps) =>
     signInScreenPasswordRightIconEye: {},
     signInScreenPasswordRightIconEyeOff: {
       color: theme.colors.WHITE,
-    },
-    text: {
-      fontSize: 50,
     },
   });
 

@@ -9,6 +9,7 @@ import EyeIcon from '@components/icons/EyeIcon';
 import EyeOffIcon from '@components/icons/EyeOffIcon';
 import { yupResolver } from '@hookform/resolvers/yup';
 import loginFormValidationSchema from '@utils/formValidationSchemas/loginFormValidationSchema';
+import ISignInScreen from '@screens/SingInScreen/types';
 import tr from '../../l10n/tr.json';
 
 type SignInFormData = {
@@ -16,7 +17,7 @@ type SignInFormData = {
   password: string;
 };
 
-const SignUpScreen = () => {
+const SignInScreen = ({ route }: ISignInScreen) => {
   const styles = useThemedStyles(signInScreenStyles);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
   const signInEmailInputRef = useRef<RNTextInput | null>(null);
@@ -34,8 +35,8 @@ const SignUpScreen = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
+    route?.params?.navigateToFeedStack();
   };
 
   const togglePasswordVisible = useCallback(() => setPasswordVisible((prevState) => !prevState), []);
@@ -89,11 +90,11 @@ const SignUpScreen = () => {
             }
             onSubmitEditing={handleSubmit(onSubmit)}
           />
-          <Button disabled={!isValid} label={tr.sign_in_screen_submit_button_label} />
+          <Button onPress={handleSubmit(onSubmit)} disabled={!isValid} label={tr.sign_in_screen_submit_button_label} />
         </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default SignUpScreen;
+export default SignInScreen;

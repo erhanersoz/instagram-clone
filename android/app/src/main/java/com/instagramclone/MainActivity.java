@@ -1,5 +1,6 @@
 package com.instagramclone;
 
+import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -11,6 +12,15 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
+  }
+
+  /* React native video */
+  @Override
+  protected List<ReactPackage> getPackages() {
+      return Arrays.asList(
+              new MainReactPackage(),
+              new ReactVideoPackage()
+      );
   }
 
   /**
