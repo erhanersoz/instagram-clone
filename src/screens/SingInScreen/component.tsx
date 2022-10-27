@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useContext } from 'react';
 import { SafeAreaView, View, TextInput as RNTextInput, Pressable } from 'react-native';
 import InstagramLogo from '@components/logos/InstagramLogo';
 import signInScreenStyles from '@screens/SingInScreen/styles';
@@ -9,7 +9,7 @@ import EyeIcon from '@components/icons/EyeIcon';
 import EyeOffIcon from '@components/icons/EyeOffIcon';
 import { yupResolver } from '@hookform/resolvers/yup';
 import loginFormValidationSchema from '@utils/formValidationSchemas/loginFormValidationSchema';
-import ISignInScreen from '@screens/SingInScreen/types';
+import authContext from '@contexts/authContext';
 import tr from '../../l10n/tr.json';
 
 type SignInFormData = {
@@ -17,11 +17,13 @@ type SignInFormData = {
   password: string;
 };
 
-const SignInScreen = ({ route }: ISignInScreen) => {
+function SignInScreen() {
   const styles = useThemedStyles(signInScreenStyles);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
   const signInEmailInputRef = useRef<RNTextInput | null>(null);
   const signInPasswordInputRef = useRef<RNTextInput | null>(null);
+  const { signIn } = useContext(authContext);
+
   const {
     control,
     handleSubmit,
@@ -36,7 +38,7 @@ const SignInScreen = ({ route }: ISignInScreen) => {
   });
 
   const onSubmit = () => {
-    route?.params?.navigateToFeedStack();
+    signIn();
   };
 
   const togglePasswordVisible = useCallback(() => setPasswordVisible((prevState) => !prevState), []);
@@ -95,6 +97,6 @@ const SignInScreen = ({ route }: ISignInScreen) => {
       </View>
     </SafeAreaView>
   );
-};
+}
 
 export default SignInScreen;

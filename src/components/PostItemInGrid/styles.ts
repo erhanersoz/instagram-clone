@@ -16,7 +16,9 @@ interface PostItemInGridStyles {
 
 const postItemInGridStyles = (theme: ThemeProps) =>
   StyleSheet.create<PostItemInGridStyles>({
-    postItemInGridContainer: {},
+    postItemInGridContainer: {
+      margin: StyleSheet.hairlineWidth,
+    },
     postItemInGridHeader: {
       flexDirection: 'row',
       alignItems: 'center',

@@ -1,4 +1,4 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState } from 'react';
 import { Dimensions, Pressable, View } from 'react-native';
 import Typography from '@components/Typography';
 import useThemedStyles from '@hooks/useThemedStyles';
@@ -9,7 +9,6 @@ import HeartIcon from '@components/icons/HeartIcon';
 import HeartOutlineIcon from '@components/icons/HeartOutlineIcon';
 import Swiper from '@components/Swiper';
 import VideoPlayer from '@components/VideoPlayer';
-import { randomImport2Images, randomImportVideo } from '@utils/functions/random';
 import FastImage from 'react-native-fast-image';
 import tr from '../../l10n/tr.json';
 
@@ -26,8 +25,6 @@ const PostItemInFeed: FC<IPostItemInFeed> = ({ post }) => {
 
   const toggleLike = () => setLiked((prevState) => !prevState);
   const likeCount = liked ? post.likeCount + 1 : post.likeCount;
-  const videoSource = useMemo(() => randomImportVideo(), []);
-  const data = useMemo(() => randomImport2Images(), []);
 
   return (
     <View style={styles.postItemInFeedContainer}>
@@ -41,8 +38,8 @@ const PostItemInFeed: FC<IPostItemInFeed> = ({ post }) => {
         </Typography>
       </View>
       <View style={styles.postItemInFeedBody}>
-        {post.type === 'image' && <Swiper data={data} />}
-        {post.type === 'video' && <VideoPlayer renderSize={renderSize} source={videoSource} />}
+        {post.type === 'image' && <Swiper images={post.urls} />}
+        {post.type === 'video' && <VideoPlayer renderSize={renderSize} uri={post.urls[0]} />}
       </View>
       <View style={styles.postItemInFeedFooter}>
         <Pressable onPress={toggleLike} style={styles.likeIconContainer}>

@@ -1,18 +1,18 @@
 import React from 'react';
-import Video, { VideoProperties } from 'react-native-video';
+import Video from 'react-native-video';
 
 interface IVideoPlayer {
   renderSize: {
     width: number;
     height: number;
   };
-  source: VideoProperties['source'];
+  uri: string;
 }
 
-const VideoPlayer = ({ renderSize, source }: IVideoPlayer) => {
+const VideoPlayer = ({ renderSize, uri }: IVideoPlayer) => {
   return (
     <Video
-      source={source}
+      source={{ uri }}
       playInBackground={false}
       playWhenInactive
       controls={false}

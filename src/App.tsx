@@ -14,6 +14,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import RootNavigation from '@navigations/RootNavigation';
+import ThemeProvider from '@containers/ThemeProvider';
+import AuthProvider from '@containers/AuthProvider';
 
 const styles = StyleSheet.create({
   gestureHandlerRootView: {
@@ -24,10 +26,14 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <GestureHandlerRootView style={styles.gestureHandlerRootView}>
-      <StatusBar barStyle="light-content" backgroundColor={Colors.lighter} />
-      <NavigationContainer theme={DarkTheme}>
-        <RootNavigation />
-      </NavigationContainer>
+      <AuthProvider>
+        <ThemeProvider>
+          <StatusBar barStyle="light-content" backgroundColor={Colors.lighter} />
+          <NavigationContainer theme={DarkTheme}>
+            <RootNavigation />
+          </NavigationContainer>
+        </ThemeProvider>
+      </AuthProvider>
     </GestureHandlerRootView>
   );
 };
