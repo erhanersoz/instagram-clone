@@ -16,10 +16,16 @@ const SearchBar = ({ posts }: ISearchBar) => {
   const [inputHeight, setInputHeight] = useState<number | undefined>(undefined);
   const insets = useSafeAreaInsets();
   const searchInputRef = useRef<RNTextInput | null>(null);
+  const [inputValue, setInputValue] = useState<string>('');
   const openGrid = useCallback(() => setGridVisibility(true), []);
   const closeGrid = useCallback(() => {
     setGridVisibility(false);
+    setInputValue('');
     searchInputRef?.current?.blur();
+  }, []);
+
+  const onChangeText = useCallback((text: string) => {
+    setInputValue(text);
   }, []);
 
   const renderItem = useCallback(({ item }: any) => <PostItemInGrid post={item} />, []);
@@ -37,6 +43,8 @@ const SearchBar = ({ posts }: ISearchBar) => {
         <TextInput
           inputRef={searchInputRef}
           onFocus={openGrid}
+          value={inputValue}
+          onChangeText={onChangeText}
           containerStyle={styles.searchBarTextInputContainer}
           placeholder={tr.feed_screen_search_bar_placeholder}
           left={<SearchIcon width={18} height={18} style={styles.searchBarTextInputLeftIcon} />}
