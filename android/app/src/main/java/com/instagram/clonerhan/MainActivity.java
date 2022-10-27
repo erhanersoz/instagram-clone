@@ -1,4 +1,4 @@
-package com.instagramclone;
+package com.instagram.clonerhan;
 
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactActivity;

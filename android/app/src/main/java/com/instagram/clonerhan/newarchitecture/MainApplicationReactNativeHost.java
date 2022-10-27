@@ -1,4 +1,4 @@
-package com.instagramclone.newarchitecture;
+package com.instagram.clonerhan.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.instagramclone.BuildConfig;
-import com.instagramclone.newarchitecture.components.MainComponentsRegistry;
-import com.instagramclone.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.instagram.clonerhan.BuildConfig;
+import com.instagram.clonerhan.newarchitecture.components.MainComponentsRegistry;
+import com.instagram.clonerhan.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
