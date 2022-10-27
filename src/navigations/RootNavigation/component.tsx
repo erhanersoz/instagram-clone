@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 function RootNavigation() {
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
 
+  // TODO: use redux
   const navigateToFeedStack = () => setIsSignedIn(true);
 
   return (
